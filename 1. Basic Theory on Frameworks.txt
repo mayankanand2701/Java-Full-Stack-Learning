@@ -1,0 +1,9 @@
+1. What is Framework ?
+= Framework are predefined API or Libraries which we can embedded on our Project. They benefit of using this is that the application speed and efficiency is also increased as the Frameworks are written in well optimised way.
+
+2. JAVA Framework Principle ?
+= It abides the Hollywood Principle that is "Do not call us, we will call you". Also called Inversion of flow or Inversion of Control.
+Frameworks will create the object for us just we need to implement them. Don't worry about creating objects.
+
+3. What are different Java Frameworks ?
+= Maven, Spring, JSF, Hibernate, Struts, etc.
