@@ -2,6 +2,8 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 // The below code is to add a custom name to the table
 // @Table(name="alien_table")
@@ -21,14 +23,29 @@ public class Alien
     // Now we want to also store a details about the Laptop which is allocated
 
     // for one to one relationship we need to add this below annontaions
-    @OneToOne
-    private Laptop laptop;
+    // @OneToOne
 
-    public Laptop getLaptop() {
+    // for one to many
+    @OneToMany(mappedBy = "alien")
+    private List<Laptop> laptop;
+
+
+//    public Laptop getLaptop() {
+//        return laptop;
+//    }
+//
+//    public void setLaptop(Laptop laptop) {
+//        this.laptop = laptop;
+//    }
+
+    // Getter setter for one to Many
+
+
+    public List<Laptop> getLaptop() {
         return laptop;
     }
 
-    public void setLaptop(Laptop laptop) {
+    public void setLaptop(List<Laptop> laptop) {
         this.laptop = laptop;
     }
 

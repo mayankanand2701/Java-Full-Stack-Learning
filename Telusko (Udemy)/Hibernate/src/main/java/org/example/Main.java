@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Arrays;
+
 public class Main
 {
     public static void main(String[] args)
@@ -84,6 +86,33 @@ public class Main
         //System.out.println(a2);
 
         // Code to implement ont to one mapping
+        //SessionFactory sf=new Configuration()
+        //        .addAnnotatedClass(org.example.Alien.class)
+        //        .addAnnotatedClass(org.example.Laptop.class)
+        //        .configure().buildSessionFactory();
+       // Session session=sf.openSession();
+
+        //Laptop l1=new Laptop();
+        //l1.setId(101);
+        //l1.setBrand("Hp");
+        //l1.setModel("New");
+        //l1.setRam(8);
+
+        //Alien a1=new Alien();
+        //a1.setAid(1);
+        //a1.setAname("Rakesh");
+        //a1.setTech("Robotics");
+        //a1.setLaptop(l1);
+
+        //Transaction transaction=session.beginTransaction();
+        //session.persist(l1);
+        //session.persist(a1);
+        //transaction.commit();
+
+        //Alien a2=session.get(Alien.class,1);
+        //System.out.println(a2);
+
+        // Code for One to Many
         SessionFactory sf=new Configuration()
                 .addAnnotatedClass(org.example.Alien.class)
                 .addAnnotatedClass(org.example.Laptop.class)
@@ -96,16 +125,26 @@ public class Main
         l1.setModel("New");
         l1.setRam(8);
 
+        Laptop l2=new Laptop();
+        l2.setId(102);
+        l2.setBrand("Lenevo");
+        l2.setModel("Old");
+        l2.setRam(12);
+
         Alien a1=new Alien();
         a1.setAid(1);
         a1.setAname("Rakesh");
         a1.setTech("Robotics");
-        a1.setLaptop(l1);
+        a1.setLaptop(Arrays.asList(l1,l2));
 
         Transaction transaction=session.beginTransaction();
         session.persist(l1);
+        session.persist(l2);
         session.persist(a1);
         transaction.commit();
+
+        l1.setAlien(a1);
+        l2.setAlien(a1);
 
         Alien a2=session.get(Alien.class,1);
         System.out.println(a2);

@@ -7,6 +7,7 @@ package org.example;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 // For one to one mapping we do not need this so commenting this out
 // @Embeddable
@@ -20,6 +21,10 @@ public class Laptop {
     private String model;
     private int ram;
 
+    // to privew the alien entry in the laptop table
+    @ManyToOne
+    private Alien alien;
+
     @Override
     public String toString() {
         return "Laptop{" +
@@ -28,6 +33,14 @@ public class Laptop {
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
                 '}';
+    }
+
+    public Alien getAlien() {
+        return alien;
+    }
+
+    public void setAlien(Alien alien) {
+        this.alien = alien;
     }
 
     public int getId() {
