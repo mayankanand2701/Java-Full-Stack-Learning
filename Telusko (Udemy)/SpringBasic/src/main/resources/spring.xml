@@ -1,0 +1,18 @@
+<!--bean are objects that are managed by spring framework-->
+<!--Spring 6 bean configuration you will get this template -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    If we mention scope="prototype" then for every getBean call it will create separate object-->
+<!--    By default, scope is singleton -->
+<!--        If it is prototype then it won't create the object of that beans when loaded only when getBean() called-->
+    <!--    <bean id="alien" class="org.demo.Alien" scope="prototype">-->
+    <bean id="alien" class="org.demo.Alien">
+<!--    first it is creating the object and then calling setter to assing the value hence called as setter injection-->
+        <property name="age" value="21"></property>
+
+    </bean>
+
+</beans>
